@@ -1,7 +1,7 @@
 // pages/remembered.tsx
 import { useState, useEffect } from "react";
 import { SynonymCard } from "./types";
-import SynonymCardDisplay from "./components/SynonymCardDisplay";
+import SynonymCardDisplay from "../components/SynonymCardDisplay";
 import Link from "next/link";
 
 export default function RememberedSynonyms() {

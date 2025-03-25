@@ -1,7 +1,7 @@
 // pages/index.tsx
 import { useState, useEffect } from "react";
 import { SynonymCard, WordGroup } from "./types";
-import SynonymCardDisplay from "./components/SynonymCardDisplay";
+import SynonymCardDisplay from "../components/SynonymCardDisplay";
 import { wordGroups, idiomGroups, substitutionGroups } from "./data/words";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";

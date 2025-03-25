@@ -1,5 +1,5 @@
 // components/SynonymCardDisplay.tsx
-import { SynonymCard } from "../types";
+import { SynonymCard } from "../pages/types";
 
 interface CardProps {
   card: SynonymCard;
