@@ -39,15 +39,15 @@ export default function Home() {
         const existingCard = allCards.find(c => c.id === word.id);
         const card: SynonymCard = {
           id: word.id,
-          text: word.text, // Ensure text is explicitly set
+          text: word.text,
           eng: word.eng,
           meaning: word.meaning,
           mnemonicEnglish: generateMnemonicEnglish(word.text, word.eng),
           mnemonicHindi: generateMnemonicHindi(word.text, word.meaning),
           room: generateRoom(word.text),
-          remembered: existingCard ? existingCard.remembered : false, // Only override remembered field
+          remembered: existingCard ? existingCard.remembered : false,
         };
-        console.log("Generated Card:", card); // Debug: Check each card
+        console.log("Generated Card:", card);
         return card;
       });
 
