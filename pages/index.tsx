@@ -1,8 +1,8 @@
 // pages/index.tsx
 import { useState, useEffect } from "react";
-import { SynonymCard, WordGroup } from "./types";
+import { SynonymCard, WordGroup } from "../types";
 import SynonymCardDisplay from "../components/SynonymCardDisplay";
-import { wordGroups, idiomGroups, substitutionGroups } from "./data/words";
+import { wordGroups, idiomGroups, substitutionGroups } from "../data/words";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -39,15 +39,15 @@ export default function Home() {
         const existingCard = allCards.find(c => c.id === word.id);
         const card: SynonymCard = {
           id: word.id,
-          text: word.text,
+          text: word.text, // Ensure text is explicitly set
           eng: word.eng,
           meaning: word.meaning,
           mnemonicEnglish: generateMnemonicEnglish(word.text, word.eng),
           mnemonicHindi: generateMnemonicHindi(word.text, word.meaning),
           room: generateRoom(word.text),
-          remembered: existingCard ? existingCard.remembered : false,
+          remembered: existingCard ? existingCard.remembered : false, // Only override remembered field
         };
-        console.log("Generated Card:", card);
+        console.log("Generated Card:", card); // Debug: Check each card
         return card;
       });
 
