@@ -83,6 +83,12 @@ const WordCardsPage: React.FC = () => {
           >
             View All Words
           </Link>
+          <Link
+            href="/"
+            className="inline-block bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 shadow-lg font-roboto text-base sm:text-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
+            Home
+          </Link>
         </motion.div>
 
         {/* Slider Container */}
