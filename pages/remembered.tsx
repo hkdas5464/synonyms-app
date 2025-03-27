@@ -1,6 +1,6 @@
 // pages/remembered.tsx
 import { useState, useEffect } from "react";
-import { SynonymCard } from "../types";
+import { SynonymCard } from "../types/types";
 import SynonymCardDisplay from "../components/SynonymCardDisplay";
 import Link from "next/link";
 

@@ -1,6 +1,6 @@
 // pages/index.tsx
 import { useState, useEffect } from "react";
-import { SynonymCard, WordGroup } from "../types";
+import { SynonymCard, WordGroup } from "../types/types";
 import SynonymCardDisplay from "../components/SynonymCardDisplay";
 import { wordGroups, idiomGroups, substitutionGroups } from "../data/words";
 import Link from "next/link";
@@ -39,15 +39,15 @@ export default function Home() {
         const existingCard = allCards.find(c => c.id === word.id);
         const card: SynonymCard = {
           id: word.id,
-          text: word.text, // Ensure text is explicitly set
+          text: word.text,
           eng: word.eng,
           meaning: word.meaning,
           mnemonicEnglish: generateMnemonicEnglish(word.text, word.eng),
           mnemonicHindi: generateMnemonicHindi(word.text, word.meaning),
           room: generateRoom(word.text),
-          remembered: existingCard ? existingCard.remembered : false, // Only override remembered field
+          remembered: existingCard ? existingCard.remembered : false,
         };
-        console.log("Generated Card:", card); // Debug: Check each card
+        console.log("Generated Card:", card);
         return card;
       });
 
@@ -120,9 +120,17 @@ export default function Home() {
       <h1 className="text-4xl font-bold mb-8 text-center text-purple-800 animate-pulse">
         AI Mnemonic Word Palace
       </h1>
-      <Link href="/remembered" className="text-blue-600 underline mb-4 block text-center">
-        View Remembered Items
-      </Link>
+      <div className="flex justify-center items-center gap-4 mb-4">
+        <Link href="/remembered" className="text-blue-600 underline">
+          View Remembered Items
+        </Link>
+        <Link
+          href="/memory"
+         className="text-blue-600 underline"
+        >
+          Go to Blackbook
+        </Link>
+      </div>
       <div className="max-w-5xl mx-auto">
         <div className="mb-8 flex space-x-4">
           <select
