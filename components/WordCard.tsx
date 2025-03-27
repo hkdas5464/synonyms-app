@@ -23,8 +23,8 @@ const WordCard: React.FC<WordCardProps> = ({ word, onCardClick, isVisible }) => 
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className={`bg-gradient-to-br ${randomGradient} rounded-md px-2 py-1 text-white text-sm sm:text-base font-semibold shadow-md border border-white/20 cursor-pointer inline-block hover:shadow-lg`}
-          whileHover={{ scale: 1.1 }}
+          className={`bg-gradient-to-br ${randomGradient} rounded-md px-2 text-white text-sm sm:text-base font-semibold shadow-md border border-white/20 cursor-pointer inline-block hover:shadow-lg`}
+          
           whileTap={{ scale: 0.95 }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
