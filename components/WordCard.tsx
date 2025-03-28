@@ -1,15 +1,23 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Word } from "../types/word";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface WordCardProps {
   word: Word;
-  onCardClick: (wordId: string) => void;
+  onCardClick: (wordId: string) => void; // Removes the word when called
   isVisible: boolean;
 }
 
 const WordCard: React.FC<WordCardProps> = ({ word, onCardClick, isVisible }) => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [lastTap, setLastTap] = useState<number>(0); // For manual double-tap detection
+
+  // Detect if the device supports touch
+  useEffect(() => {
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    setIsTouchDevice(isTouch);
+  }, []);
 
   const colors = [
     "from-red-500 to-pink-600",
@@ -21,6 +29,49 @@ const WordCard: React.FC<WordCardProps> = ({ word, onCardClick, isVisible }) => 
   ];
 
   const randomGradient = colors[Math.floor(Math.random() * colors.length)];
+
+  // Handle click/tap events
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isTouchDevice) {
+      const currentTime = new Date().getTime();
+      const tapGap = currentTime - lastTap;
+      const DOUBLE_TAP_DELAY = 300; // Time in ms to detect double tap
+
+      if (tapGap < DOUBLE_TAP_DELAY && tapGap > 0) {
+        // Double tap detected on mobile
+        onCardClick(word.id); // Remove the word
+        setIsTooltipVisible(false);
+      } else {
+        // Single tap: toggle tooltip
+        setIsTooltipVisible((prev) => !prev);
+      }
+      setLastTap(currentTime);
+    } else {
+      // Desktop: Single click triggers onCardClick
+      onCardClick(word.id);
+    }
+  };
+
+  // Handle cross mark click to remove the word (mobile only)
+  const handleCrossClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation(); // Prevent triggering handleClick
+    onCardClick(word.id); // Remove the word
+    setIsTooltipVisible(false); // Hide tooltip
+  };
+
+  // Desktop: Show tooltip on hover
+  const handleMouseEnter = () => {
+    if (!isTouchDevice) {
+      setIsTooltipVisible(true);
+    }
+  };
+
+  // Desktop: Hide tooltip on mouse leave
+  const handleMouseLeave = () => {
+    if (!isTouchDevice) {
+      setIsTooltipVisible(false);
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -36,9 +87,9 @@ const WordCard: React.FC<WordCardProps> = ({ word, onCardClick, isVisible }) => 
             rotate: 180,
             transition: { duration: 0.4, ease: "easeInOut" },
           }}
-          onClick={() => onCardClick(word.id)}
-          onMouseEnter={() => setIsTooltipVisible(true)}
-          onMouseLeave={() => setIsTooltipVisible(false)}
+          onClick={handleClick}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           {word.text}
           {/* Tailwind CSS Tooltip */}
@@ -52,8 +103,16 @@ const WordCard: React.FC<WordCardProps> = ({ word, onCardClick, isVisible }) => 
                   exit={{ opacity: 0, y: 10 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="bg-gray-800 text-white text-xs rounded-md px-2 py-1 whitespace-nowrap">
+                  <div className="bg-gray-800 text-white text-xs rounded-md px-2 py-1 whitespace-nowrap flex items-center">
                     {word.meaning}
+                    {isTouchDevice && (
+                      <div
+                        className="ml-2 cursor-pointer text-white hover:text-red-400"
+                        onClick={handleCrossClick}
+                      >
+                        ✕
+                      </div>
+                    )}
                   </div>
                   <div className="absolute left-1/2 -translate-x-1/2 top-full border-4 border-transparent border-t-gray-800" />
                 </motion.div>
