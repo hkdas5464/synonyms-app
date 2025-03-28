@@ -99,7 +99,7 @@ const WordCardsPage: React.FC = () => {
                 <h2 className="text-lg xs:text-xl sm:text-2xl lg:text-3xl font-semibold text-white mb-4 lg:mb-6 font-orbitron tracking-tight bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent text-center">
                   {wordGroups[currentSlide].title}
                 </h2>
-                <div className="flex flex-wrap justify-center gap-2 lg:gap-4 overflow-y-auto">
+                <div className="flex flex-wrap justify-center gap-2 pt-8 lg:gap-4 overflow-y-auto">
                   {wordGroups[currentSlide].words.map((word: Word) => (
                     <WordCard
                       key={word.id}
