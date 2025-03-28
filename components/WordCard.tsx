@@ -105,14 +105,14 @@ const WordCard: React.FC<WordCardProps> = ({ word, onCardClick, isVisible }) => 
                 >
                   <div className="bg-gray-800 text-white text-xs rounded-md px-2 py-1 whitespace-nowrap flex items-center">
                     {word.meaning}
-                    {isTouchDevice && (
+                    {/* {isTouchDevice && (
                       <div
                         className="ml-2 cursor-pointer text-white hover:text-red-400"
                         onClick={handleCrossClick}
                       >
                         ✕
                       </div>
-                    )}
+                    )} */}
                   </div>
                   <div className="absolute left-1/2 -translate-x-1/2 top-full border-4 border-transparent border-t-gray-800" />
                 </motion.div>
