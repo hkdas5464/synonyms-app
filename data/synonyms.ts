@@ -8,7 +8,7 @@ export const wordGroups: WordGroup[] = [
   {
     title: "Day_1", words: [{ id: "1", text: "Abate", "eng": "To reduce in intensity or amount", meaning: "कम करना" },
     { id: "2", text: "Abattoir", "eng": "A slaughterhouse", meaning: "कसाईखाना" },
-    { id: "3", text: "Abbot", "eng": "The head of a monastery", meaning: "गुरु" },
+    { id: "3", text: "Abbot", "eng": "The head of a monastery", meaning: "मठ का प्रमुख" },
     { id: "4", text: "Abbreviation", "eng": "A shortened form of a word or phrase", meaning: "संक्षेप" },
     { id: "5", text: "Abdicate", "eng": "To renounce a throne, right, or responsibility", meaning: "राज्य छोड़ना" },
     { id: "6", text: "Abdication", "eng": "The act of giving up a position of power, especially a throne", meaning: "राज्य त्याग" },
@@ -52,7 +52,7 @@ export const wordGroups: WordGroup[] = [
     { id: "44", text: "Agenda", "eng": "A list of items to be discussed at a meeting", meaning: "कार्यसूची" },
     { id: "45", text: "Aggrandize", "eng": "To increase the power or importance of someone or something", meaning: "बढ़ाना" },
     { id: "46", text: "Aggressive", "eng": "Ready to attack or confront forceful", meaning: "आक्रामक" },
-    { id: "47", text: "Agnostic", "eng": "A person who believes the existence of God is unknown or unknowable", meaning: "निर्णयहीन" },
+    { id: "47", text: "Agnostic", "eng": "A person who believes the existence of God is unknown or unknowable", meaning: "ईश्वर के बारे में संशयवादी व्यक्ति" },
     { id: "48", text: "Agony", "eng": "Intense physical or mental suffering", meaning: "दर्द" },
     { id: "49", text: "Album", "eng": "A collection of photographs or records", meaning: "एल्बम" },
     { id: "50", text: "Alchemy", "eng": "A medieval chemical science aiming to transform materials", meaning: "रसायन शास्त्र" },
@@ -60,7 +60,7 @@ export const wordGroups: WordGroup[] = [
     { id: "52", text: "Algophobia", "eng": "An irrational fear of pain", meaning: "दर्द का डर" },
     { id: "53", text: "Allen", "eng": "A narrow strip of land between rivers", meaning: "अलेंन" },
     { id: "54", text: "Alimony", "eng": "A regular payment to a former spouse after divorce", meaning: "विलासिता" },
-    { id: "55", text: "Allegory", "eng": "A story or picture with a symbolic meaning", meaning: "सूक्ष्म" },
+    { id: "55", text: "Allegory", "eng": "A story or picture with a symbolic meaning", meaning: "निति कथा" },
     { id: "56", text: "Alliteration", "eng": "The repetition of consonant sounds at the beginning of words", meaning: "उच्चारण की एकता" },
     { id: "57", text: "Alluvium", "eng": "A deposit of silt or clay left by flowing water", meaning: "क्षेत्रीय मिट्टी" },
     { id: "58", text: "Alma Mater", "eng": "A school, college, or university from which someone has graduated", meaning: "स्कूल या विश्वविद्यालय या जहां शिक्षा पाई हो वह स्थान" },
@@ -126,8 +126,8 @@ export const wordGroups: WordGroup[] = [
     { id: "116", text: "Apiary", "eng": "A place where bees are kept", meaning: "मधुमक्खी पालन" },
     { id: "117", text: "Apologize", "eng": "To express regret for an action or wrongdoing", meaning: "क्षमायाचना करना" },
     { id: "118", text: "Apostasy", "eng": "The abandonment or renunciation of a belief or principle", meaning: "धर्म छोडना" },
-    { id: "119", text: "Apostate", "eng": "A person who renounces a religious or political belief", meaning: "धर्मान्तरित" },
-    { id: "120", text: "Apostle", "eng": "A messenger or teacher of a religious doctrine", meaning: "राजदूत" },]
+    { id: "119", text: "Apostate", "eng": "A person who renounces a religious or political belief", meaning: "धर्म त्यागी " },
+    { id: "120", text: "Apostle", "eng": "A pioneer of a reform movement", meaning: "धर्म प्रचारक" },]
   },
 
   {
